@@ -1,0 +1,141 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    scroll-behavior: smooth;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.navbar ul li a:hover {
+    color: #ff6600;
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 58px;
+    font-size: 60px;
+    font-weight:sans-serif;
+    color:brown;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    max-width: 200px;
+    margin:5px auto;
+    padding: 30px;
+}
+
+.info-text {
+    width: 50%;
+}
+
+.info h3 {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.info h1 {
+    font-size: 100px;
+    font-weight:bolder;
+    margin-bottom: 30px;
+    color:rgba(170, 185, 6, 0.584);
+}
+
+.info h1 span {
+    color:rgb(185, 164, 95);
+}
+
+.info p {
+    font-size: 18px;
+    color:rgb(65, 55, 80);
+    max-width: 600px;
+}
+
+section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+
+#about {
+    background:gainsboro;
+    padding: 50px 20px;
+}
+
+
+#skills {
+    background: #ffebee;
+    padding: 50px 20px;
+}
+
+.skills h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skills ul li {
+    font-size: 35px;
+    color: #444;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+#projects {
+    background: #ede7f6;
+    padding: 50px 20px;
+}
+
+.projects h2 {
+    font-size: 28px;
+    text-align: left;
+}
