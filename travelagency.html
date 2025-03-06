@@ -7,24 +7,115 @@
     <link rel="stylesheet" href="travelstyle.css">
 </head>
 <body>
-        <div class="navbar">
-            <ul>
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#destinations">DESTINATIONS</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </div>
-        <div id="home" >
-            <header>
-                <H1> DISCOVER <span><br> THE WORLD </span></H1>
-        </div> 
-        <div id="destinations">
-            <h2> DESTINATIONS </h2>
-            <a href="https://en.wikipedia.org/wiki/Gokarna,_Karnataka"target="_blank"><img src="gokarna.jpg" alt="gokarna" width="300" height="200">GOKARNA</a>
-            <A href="https://www.holidify.com/places/coorg/" target="_blank"><img src="coorg.jpg" alt="coorg" width="300" height="200"> ">COORG</A>
-            <A href="https://en.wikipedia.org/wiki/Dudhsagar_Falls" target="_blank"><img src="dudh.jpg" alt="DUDH SAGAR" width="300" height="200"> >DUDH SAGAR</A>
-            <a href="https://en.wikipedia.org/wiki/Chikmagalur"><img src="chikka.webps" alt="chikkamagalur" width="300" height="200">CHIKKAMAGALUR</a>     
-        </div>
-    </header>
+    <div class="login-container" id="login-container">
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p>New to our Travel Agency? <a href="javascript:void(0)" onclick="showRegister()">Create an account</a></p>
+    
+        <button onclick="showDestinations()" class="btn">Explore Destinations</button>
+    </div>
+
+    <div class="form-container" id="register-container">
+        <h2>Create an Account</h2>
+        <form action="/register" method="POST">
+            <div class="input-group">
+                <label for="register-name">Full Name</label>
+                <input type="text" id="register-name" name="name" required placeholder="Enter your full name">
+            </div>
+            <div class="input-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" name="password" required placeholder="Enter your password">
+            </div>
+            <div class="input-group">
+                <label for="register-destination">Preferred Travel Destination</label>
+                <input type="text" id="register-destination" name="destination" placeholder="Where would you like to travel?">
+            </div>
+            <div class="input-group">
+                <label for="register-budget">Estimated Budget</label>
+                <input type="text" id="register-budget" name="budget" placeholder="Enter your budget (optional)">
+            </div>
+            <div class="input-group">
+                <label for="register-loyalty">Loyalty Program (if any)</label>
+                <input type="text" id="register-loyalty" name="loyalty_program" placeholder="Enter your loyalty program ID (optional)">
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+
+    <div id="home">
+        <header>
+            <h1>DISCOVER <span><br> THE WORLD </span></h1>
+        </header>
+    </div>
+
+   
+    <div id="destinations" style="display: none;">
+        <h2>DESTINATIONS</h2>
+        <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Gokarna,_Karnataka" target="_blank"><img src="gokarna.jpg" alt="GOKARNA"> GOKARNA</a></li>
+            <li><a href="https://www.holidify.com/places/coorg/" target="_blank"><img src="coorg.jpg" alt="COORG"> COORG</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Dudhsagar_Falls" target="_blank"><img src="dudh.jpg" alt="DUDH SAGAR"> DUDH SAGAR</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Chikmagalur" target="_blank"><img src="https://karthikestatecottages.com/wp-content/uploads/2024/11/Top-5-waterfall-1.jpg" alt="CHIKKAMAGALUR"> CHIKKAMAGALUR</a></li>
+        </ul>
+    </div>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.querySelector("form[action='/login']");
+    const exploreBtn = document.querySelector(".btn[onclick='showDestinations()']");
+    const loginContainer = document.getElementById("login-container");
+    const destinationsContainer = document.getElementById("destinations");
+
+    
+    exploreBtn.style.display = "none";
+    destinationsContainer.style.display = "none";
+
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); 
+
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+
+       
+        if (email === "user@example.com" && password === "password123") {
+            alert("Login successful!");
+
+            exploreBtn.style.display = "block";
+
+           
+            sessionStorage.setItem("isLoggedIn", "true");
+        } else {
+            alert("Invalid login. Please check your credentials.");
+        }
+    });
+
+
+    exploreBtn.addEventListener("click", function () {
+        loginContainer.style.display = "none"; 
+        destinationsContainer.style.display = "block"; 
+        destinationsContainer.scrollIntoView({ behavior: "smooth" }); 
+    });
+
+    
+    if (sessionStorage.getItem("isLoggedIn") === "true") {
+        exploreBtn.style.display = "block";
+    }
+});
+
+    </script>
 </body>
 </html>
